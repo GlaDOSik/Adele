@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane layoutY="4.0" maxWidth="1.7976931348623157E308" prefHeight="23.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <CheckBox fx:id="sharedIcon" disable="true" layoutY="-5.0" mnemonicParsing="false" />
+      <CheckBox fx:id="checkVisible" layoutX="16.0" mnemonicParsing="false" selected="true" />
+      <Label layoutX="45.0" text="Layer name" />
+   </children>
+</Pane>

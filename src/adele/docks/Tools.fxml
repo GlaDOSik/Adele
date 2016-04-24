@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane contentDisplay="RIGHT" prefWidth="207.0" text="Tools" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adele.docks.ToolsController">
+   <content>
+      <FlowPane fx:id="flowPane" hgap="5.0" vgap="5.0" />
+   </content>
+   <graphic>
+      <Button fx:id="btnEditToolDock" layoutX="100.0" mnemonicParsing="false" />
+   </graphic>
+</TitledPane>
