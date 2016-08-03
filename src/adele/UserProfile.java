@@ -11,11 +11,19 @@ package adele;
  */
 public class UserProfile {
     
-    //boolean animatedAxis;
-    //udělat gettery a settery pro načítání z json
+    public UserProfile(){
+    //nahraje výchozí uživatelův profil/pokud neexistuje, vytvoří ho
+    //vyzve uživatele, aby vybral lokaci svého profilu
+    }
+    
+    //animované pravítko
+    boolean animatedAxis = false;
+    //barva okolo obrázku
+    String colorAroundImage = "#282f3d";
+    //skin - výchozí, nebo cesta k vlastnímu?
     
     public void loadUserProfile(){
-        //JSON ??
+        //JSON ?? jiný formát
         System.out.println("Loading user file");
     }
     

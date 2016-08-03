@@ -24,6 +24,9 @@ public abstract class BridgeComponent {
         return bridgeReference;
     }  
     
+    //TODO přidat metodu updateUserSettings(UserProfile), která aktualizuje uživatelovo nastavení ze třídy UserProfile
+    
+    
     //ready is called when the bridgeComponent is in bridge
     //do not use getBridgeReference in constructor or in initialize, use it here !!
     public abstract void ready();

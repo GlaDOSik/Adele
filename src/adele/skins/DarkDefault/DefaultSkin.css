@@ -56,6 +56,9 @@
 .corner{
     -fx-background-color: transparent;
 }
+
+/* SCROLL BAR/PANE */
+
 .scroll-bar{
     -fx-background-color: transparent;
 }
@@ -73,6 +76,17 @@
     -fx-background-color: #d6d9df;
 }
 
+.scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.scroll-pane{
+    -fx-background-insets: 0;
+    -fx-background-color: #282f3d;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+}
+
+/*///////////////////////////////////*/
 .check-box .box{
     -fx-background-color: #3f7692;
     -fx-background-radius: 0;    
@@ -89,9 +103,8 @@
     -fx-shape: null;
 }
 
+/* DOCKS */
 
-
-/* LAYERS DOCK */
 .titled-pane{
     -fx-font: 14px "OpenSans";
     -fx-text-fill: white;
@@ -99,7 +112,7 @@
 }
 .titled-pane .title{    
     -fx-background-color: #282f3d;
-    -fx-background-radius: 0;  
+    -fx-background-radius: 0;
 }
 
 .titled-pane .title .arrow-button .arrow{
@@ -112,6 +125,31 @@
 .titled-pane .content{
     -fx-border-color: #23222c;
     -fx-background-color: #23222c;
+}
+
+#btnResizeDockLeft{
+    -fx-graphic: url("button-small-left-resize.png");
+    -fx-background-color: transparent;
+    -fx-padding: 0;    
+}
+#btnResizeDockLeft:hover{
+    -fx-graphic: url("button-small-left-resize-hover.png"); 
+}
+
+#btnResizeDockRight{
+    -fx-graphic: url("button-small-right-resize.png");
+    -fx-background-color: transparent;
+    -fx-padding: 0;    
+}
+#btnResizeDockRight:hover{
+    -fx-graphic: url("button-small-right-resize-hover.png"); 
+}
+
+
+/* LAYERS DOCK */
+
+.list-view{
+    -fx-background-color: transparent;
 }
 
 .menu-button{
@@ -147,6 +185,8 @@
 
 .list-cell {
     -fx-background-color: #282f3d;
+    /*do NOT change this padding - could cause problems when moving the layer*/
+    -fx-padding:0;
 }
 
 .list-cell:selected{
@@ -161,7 +201,6 @@
 /*color of reordered layer*/
 #layerItemReplaced{
     -fx-background-color: #ff5b02;
-    -fx-padding: 10;
 }
 
 #checkVisible .box{
@@ -308,16 +347,7 @@
     -fx-translate-x: -5;
 }
 
-/*SCROOL BAR*/
-.scroll-pane .viewport{
-    -fx-background-color: transparent;
-}
-.scroll-pane{
-    -fx-background-insets: 0;
-    -fx-background-color: #282f3d;
-    -fx-background-radius: 0;
-    -fx-border-color: transparent;
-}
+
 
 /*TAB PANE*/
 .tab-label{

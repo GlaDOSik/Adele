@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane fx:id="paneDock" contentDisplay="RIGHT" disable="true" minWidth="120.0" prefHeight="300.0" prefWidth="220.0" text="Layers" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adele.dock.LayersController">
+   <graphic>
+      <ButtonBar fx:id="buttonBar" buttonMinWidth="5.0" prefHeight="25.0" prefWidth="126.0">
+        <buttons>
+            <Label fx:id="frameLabel" />
+          <Button fx:id="btnNewLayer" maxHeight="20.0" maxWidth="20.0" mnemonicParsing="false" onAction="#addFrameLayer" />
+            <Button fx:id="btnNewSharedLayer" maxHeight="20.0" maxWidth="20.0" mnemonicParsing="false" onAction="#addSharedLayer" />
+            <Button fx:id="btnDeleteLayer" maxHeight="20.0" maxWidth="20.0" mnemonicParsing="false" onAction="#deleteLayer" />
+        </buttons>
+      </ButtonBar>
+   </graphic>
+   <content>
+      <VBox>
+         <children>
+            <ListView fx:id="layersContainer" />
+            <HBox fx:id="hboxResize" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseDragged="#resizeDock" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</TitledPane>

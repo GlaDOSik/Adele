@@ -1,32 +1,26 @@
 
 package adele;
 
-import adele.core.ImageEditor;
+import adele.popup.MainSceneController;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public final class Bridge {
 
     public Bridge(Stage primaryStage){
         controllers = new HashMap<>(); 
-        imageEditor = new ImageEditor();
-        userProfile = new UserProfile();
-        
+        userProfile = new UserProfile();        
 
-        loadViewController(View.MainSceneP, "MainScene.fxml");
-        loadViewController(View.NewFileT, "tabs/NewFile.fxml");
-        loadViewController(View.ImageEditorT, "tabs/ImageEditor.fxml");
-        loadViewController(View.LayersD, "docks/Layers.fxml");
-        loadViewController(View.ToolsD, "docks/Tools.fxml");
-        loadViewController(View.LayerSettingsP, "popups/LayerSettings.fxml");        
+        loadViewController(View.MainSceneP, "popup/MainScene.fxml");
+        loadViewController(View.NewFileT, "tab/NewFile.fxml");
+        loadViewController(View.ImageEditorT, "tab/ImageEditor.fxml");
+        loadViewController(View.LayersD, "dock/Layers.fxml");
+        loadViewController(View.ToolsD, "dock/Tools.fxml");
+        loadViewController(View.LayerSettingsP, "popup/LayerSettings.fxml");        
         
-
         ((MainSceneController) getController(View.MainSceneP)).addPopUp(View.MainSceneP, "Adele v0.4", false, true, primaryStage);
         //userProfile.load()
     }
@@ -36,15 +30,9 @@ public final class Bridge {
         NewFileT, ImageEditorT,
         LayersD, ToolsD,
         MainSceneP, LayerSettingsP, ColorPickerP
-    }
-
-    //nepatří sem
-    public enum DockPlacement {
-        Left, Right
-    }
+    }    
 
     private final UserProfile userProfile;
-    private final ImageEditor imageEditor;
     private final HashMap<View, BridgeComponent> controllers;
 
     private void loadViewController(View view, String pathToView){
@@ -73,8 +61,5 @@ public final class Bridge {
         return controllers.size();
     }
 
-    public ImageEditor getImageEditor(){
-        return imageEditor;
-    }
 
 }
