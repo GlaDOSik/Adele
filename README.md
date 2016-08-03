@@ -1,0 +1,3 @@
+# Adele
+This is a prototype of pixel art editor made in Java. It has a working layer system with shared layers, dockable layer and tool panel, panable and zoomable canvas with ruler and custom window frame. The goal is to make an easy to use, powerfull and good looking open source pixel art editor. Right now, there is only Aseprite and even though it's a really cool editor, I can't swallow how it looks like.
+Unfortunately, I hit a nasty roadblock. Javafx uses a linear interpolation for changing the scale (we are talking about pixel art - you need to be able to zoom). And there is no way to use nearest neighbor algorithm. There are several different workarounds and none of them is ideal. Right now, I'm working on my own custom optimized image model.
