@@ -1,2 +1,0 @@
-JMH S 31 adele.benchmark.FrameBenchmarks S 67 adele.benchmark.generated.FrameBenchmarks_flattenFrameBench_jmhTest S 17 flattenFrameBench S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
-JMH S 36 adele.benchmark.ColorUtilsBenchmarks S 68 adele.benchmark.generated.ColorUtilsBenchmarks_packFloatARGB_jmhTest S 13 packFloatARGB S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MICROSECONDS E E 
