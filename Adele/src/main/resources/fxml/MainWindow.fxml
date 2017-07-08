@@ -5,7 +5,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -17,7 +16,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="New" />
+              <MenuItem mnemonicParsing="false" onAction="#newImagePrompt" text="New" />
                   <MenuItem mnemonicParsing="false" text="Open" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Close" />
@@ -57,11 +56,7 @@
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <TabPane VBox.vgrow="SOMETIMES">
-              <tabs>
-                <Tab text="Test" />
-              </tabs>
-            </TabPane>
+            <TabPane fx:id="tabs" VBox.vgrow="SOMETIMES" />
          </children>
       </VBox>
    </center>

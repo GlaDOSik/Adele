@@ -29,10 +29,10 @@ public class ImageFactoryTest {
         Assert.assertEquals("Image height", 15, image.getHeight());
         Assert.assertEquals("Image frames", 2, image.getFrames().size());
         for (Frame frame : image.getFrames()) {
-           Assert.assertEquals("Number of shared layers", 3, frame.getNumberOfSharedLayers()); 
-           Assert.assertEquals("Number of all layers", 8, image.getFrames().get(0).getLayers().size());
+            Assert.assertEquals("Number of shared layers", 3, frame.getNumberOfSharedLayers());
+            Assert.assertEquals("Number of all layers", 8, image.getFrames().get(0).getLayers().size());
         }
-       
+
     }
 
 }

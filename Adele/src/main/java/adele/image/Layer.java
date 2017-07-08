@@ -11,42 +11,47 @@ public class Layer {
     @Getter
     @Setter
     private String name;
-    
+
     @Getter
     @Setter
-    private boolean visible = true;
-    
+    private boolean isVisible = true;
+
     @Getter
     @Setter
     private boolean isShared = false;
-    
+
     @Getter
     @Setter
     private BlendMode blendMode;
-    
+
     @Getter
     @Setter
     private AlphaBlend alphaBlend;
-    
+
     @Getter
     @Setter
     private float alpha = 1.0f;
-    
+
     @Getter
     private final int[] pixels;
-    
-    private final Image image;
 
-    public Layer(String name, boolean isShared, Image image) {
-        this.image = image;
-        pixels = new int[image.getWidth() * image.getHeight()];
+    /**
+     * Shared layers have reference to the first frame they were added to. They
+     * are in fact inside every frame so having reference to all frames would be
+     * pointless.
+     */
+    private final Frame parentFrame;
+
+    public Layer(String name, boolean isShared, Frame parentFrame) {
+        this.parentFrame = parentFrame;
         this.name = name;
         this.isShared = isShared;
+        blendMode = new NormalBlendMode();
+        alphaBlend = new MixAlphaBlend();
+        pixels = new int[parentFrame.getParentImage().getWidth() * parentFrame.getParentImage().getHeight()];
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0;
         }
-        blendMode = new NormalBlendMode();
-        alphaBlend = new MixAlphaBlend();
     }
 
     /**
@@ -60,7 +65,8 @@ public class Layer {
      */
     public void writePixel(int x, int y, int colorAformat) {
         //TODO ? - test the performance and add width/height as local variable if necessary
-        pixels[Math.max(0, Math.min(image.getHeight() - 1, y)) * image.getWidth() + Math.max(0, Math.min(image.getWidth() - 1, x))] = colorAformat;
+        Image pi = parentFrame.getParentImage();
+        pixels[Math.max(0, Math.min(pi.getHeight() - 1, y)) * pi.getWidth() + Math.max(0, Math.min(pi.getWidth() - 1, x))] = colorAformat;
     }
 
     /**
@@ -84,7 +90,8 @@ public class Layer {
      * @return int color in Adele format
      */
     public int getPixel(int x, int y) {
-        return pixels[Math.max(0, Math.min(image.getHeight() - 1, y)) * image.getWidth() + Math.max(0, Math.min(image.getWidth() - 1, x))];
+        Image pi = parentFrame.getParentImage();
+        return pixels[Math.max(0, Math.min(pi.getHeight() - 1, y)) * pi.getWidth() + Math.max(0, Math.min(pi.getWidth() - 1, x))];
     }
 
     /**
@@ -108,5 +115,5 @@ public class Layer {
             pixels[i] = colorAformat;
         }
     }
-
+    
 }

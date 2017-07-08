@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adele.image;
+package adele.controller;
 
 /**
  *
  * @author ludek
  */
-public class AdTexture {
+public interface ViewControllerSource {
+    
+    public String getPath();
     
 }

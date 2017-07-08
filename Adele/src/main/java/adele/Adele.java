@@ -1,14 +1,9 @@
 package adele;
 
+import adele.controller.AdeleViewControllerSource;
 import adele.utils.Version;
 import adele.controller.MainWindowController;
-import adele.controller.WindowFrameController;
-import adele.service.ControllerManager;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -39,7 +34,7 @@ public class Adele extends Application {
     public void init() {
         // do not construct Scenes and Stages here
         // TODO load userfile with usersetting
-        mainWindowController = (MainWindowController) MainWindowController.load("/fxml/MainWindow.fxml");
+        mainWindowController = (MainWindowController) MainWindowController.load(AdeleViewControllerSource.MainWindow);
         mainWindowController.createWindowFrame(false);
         mainWindowController.getWindowFrameController().setSnapping(true);
     }

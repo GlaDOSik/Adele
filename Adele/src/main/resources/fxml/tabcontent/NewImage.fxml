@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adele.controller.NewImageController">
+   <padding>
+      <Insets top="15.0" />
+   </padding>
+   <children>
+      <TextField fx:id="txtFldName" maxWidth="-Infinity" prefWidth="200.0" promptText="Name" />
+      <TextField fx:id="txtFldWidth" maxWidth="-Infinity" prefWidth="200.0" promptText="Width (px)" />
+      <TextField fx:id="txtFldHeight" maxWidth="-Infinity" prefWidth="200.0" promptText="Height (px)" />
+      <TextField fx:id="txtFldFrames" maxWidth="-Infinity" prefWidth="200.0" promptText="Number of frames" />
+      <Separator />
+      <HBox alignment="CENTER" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#createImage" text="OK" />
+            <Button mnemonicParsing="false" onAction="#cancelImage" text="Cancel" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

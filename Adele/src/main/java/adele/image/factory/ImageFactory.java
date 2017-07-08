@@ -5,22 +5,23 @@ import adele.image.Image;
 import adele.image.Layer;
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Builder;
 
 /**
- * Creates images based on templates (for example, basic template creates an image with one frame and one layer)
- * Other templates creates testing images for tests (not exposed in editor) or templates exposed in editor
- * @author ludek
+ * Class for easy and quick Image creation and initialization.
  */
 public class ImageFactory {
     
-    private int width = 0;
-    private int height = 0;
-    private int numberOfFrames = 0;
-    private int numberOfSharedLayers = 0;
-    private int numberOfLayers = 0;
-    private int frameDelayInMS = 0;
-    private String imageName = "Factory Image";
+    private int width;
+    private int height;
+    private int numberOfFrames;
+    private int numberOfSharedLayers;
+    private int numberOfLayers;
+    private int frameDelayInMS;
+    private String imageName;
+    
+    public ImageFactory() {
+        setDefault();
+    }
     
     public ImageFactory size(int width, int height) {
         this.width = width;
@@ -53,57 +54,38 @@ public class ImageFactory {
         return this;
     }
     
-    public static Image buildFromTemplate(ImageTemplate template) {
-        Image img = new Image(template.getWidth(), template.getHeight(), template.getImageName());
-        List<Layer> sharedLayers = new ArrayList<>();
-        for (int i = 0; i < template.getNumberOfSharedLayers(); i++) {
-            Layer sharedLayer = new Layer("Shared Layer " + i+1, true, img);
-            if (template.getPixels() != null && template.getWidth() * template.getHeight() == template.getPixels().length) {
-                int[] pixels = sharedLayer.getPixels();
-                for (int j = 0; j < template.getPixels().length; j++) {
-                    pixels[j] = template.getPixels()[j];
-                }
-                template.switchTestPattern();
-            }
-        }
-        for (int i = 0; i < template.getNumberOfFrames(); i++) {
-            Frame frame = new Frame(img);
-            frame.setTimeInMilliS(template.getFrameDelayInMS());
-            List<Layer> layers = frame.getLayers();
-            layers.addAll(sharedLayers);
-            for (int j = 0; j < template.getNumberOfLayers(); j++) {
-                Layer layer = new Layer("Layer " + j+1, false, img);
-                if (template.getPixels() != null && template.getWidth() * template.getHeight() == template.getPixels().length) {                    
-                    int[] pixels = layer.getPixels();
-                    for (int k = 0; k < template.getPixels().length; k++) {
-                        pixels[k] = template.getPixels()[k];
-                    }
-                    template.switchTestPattern();
-                }
-                frame.getLayers().add(layer);
-            }
-            img.getFrames().add(frame);
-        }        
-        return img;
-    }
-    
     public Image build() {
         Image img = new Image(width, height, imageName);
         List<Layer> sharedLayers = new ArrayList<>();
-        for (int i = 0; i < numberOfSharedLayers; i++) {
-            sharedLayers.add(new Layer("Shared Layer " + i+1, true, img));
-        }
+        
         for (int i = 0; i < numberOfFrames; i++) {
-            Frame frame = new Frame(img);
+            Frame frame = new Frame(img);            
+            if (numberOfSharedLayers != 0 && sharedLayers.isEmpty()) {
+                for (int j = 0; j < numberOfSharedLayers; j++) {
+                    sharedLayers.add(new Layer("Shared Layer " + j+1, true, frame));
+                }
+            }            
             frame.setTimeInMilliS(frameDelayInMS);
             List<Layer> layers = frame.getLayers();
             layers.addAll(sharedLayers);
             for (int j = 0; j < numberOfLayers; j++) {
-                layers.add(new Layer("Layer " + j+1, false, img));
+                layers.add(new Layer("Layer " + j+1, false, frame));
             }
             img.getFrames().add(frame);
-        }        
+        }
+        
+        setDefault();
         return img;
+    }
+    
+    private void setDefault() {
+        width = 0;
+        height = 0;
+        numberOfFrames = 0;
+        numberOfSharedLayers = 0;
+        numberOfLayers = 0;
+        frameDelayInMS = 0;
+        imageName = "Factory Image";
     }
     
 }

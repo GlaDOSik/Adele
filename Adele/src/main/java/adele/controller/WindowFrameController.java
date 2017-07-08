@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 
-public class WindowFrameController extends Controller implements Initializable {
+public class WindowFrameController extends ViewController implements Initializable {
 
     @Getter
     @Setter
@@ -48,7 +48,6 @@ public class WindowFrameController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        name = getClass().getSimpleName();
     }
     
     @FXML
@@ -161,6 +160,11 @@ public class WindowFrameController extends Controller implements Initializable {
 
     public void setFrameName(String name) {
         frameName.setText(name);
+    }
+    
+    @Override
+    public boolean isAllowedToUseWindowFrame() {
+        return false;
     }
 
 }

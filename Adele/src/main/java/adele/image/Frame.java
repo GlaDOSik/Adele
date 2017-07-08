@@ -11,13 +11,16 @@ public class Frame {
 
     @Getter
     private final List<Layer> layers;
+    
     @Setter
     @Getter
     private int timeInMilliS = 0;
-    private final Image image;
+    
+    @Getter
+    private final Image parentImage;
 
     public Frame(Image image) {
-        this.image = image;
+        this.parentImage = image;
         layers = new ArrayList<>();
     }
 
@@ -27,7 +30,7 @@ public class Frame {
      * @param inputPixelArray
      */
     public void flattenFrame(WritableImage image) {
-        if ((int) image.getWidth() != this.image.getWidth() || (int) image.getHeight() != this.image.getHeight()) {
+        if ((int) image.getWidth() != this.parentImage.getWidth() || (int) image.getHeight() != this.parentImage.getHeight()) {
             return;
         }
         PixelWriter writer = image.getPixelWriter();
