@@ -1,0 +1,21 @@
+/*  Darkstar skin
+    Created on : 24.7.2017, 23:56:51
+    Author     : ludek
+*/
+
+/* FONTS */
+@font-face {
+    font-family: Inconsolata;
+    src: url("Inconsolata.otf");
+}
+@font-face {
+    font-family: DejaVuSans;
+    src: url("DejaVuSans.ttf");
+}
+
+.root{
+    -fx-background-color: #23222c;
+    -fx-base: #23222c;
+    -fx-font-size: 12 em;
+    -fx-font-family: DejaVuSans;
+}

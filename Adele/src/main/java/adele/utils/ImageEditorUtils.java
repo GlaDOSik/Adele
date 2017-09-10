@@ -13,7 +13,7 @@ public class ImageEditorUtils {
 
     /**
      * Reference orphan shared layers in all frames. Set frame and layer
-     * pointers
+     * pointers inside EditorImage.
      *
      * @param editorImage
      */
@@ -35,6 +35,8 @@ public class ImageEditorUtils {
         } else {
             editorImage.setCurrentLayer(-1);
         }
+        // TODO - if image has no frame, put some dummy background to cache
+        editorImage.getImage().getFrames().get(framePointer).flattenFrame(editorImage.getFxCache());
 
     }
 

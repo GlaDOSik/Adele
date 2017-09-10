@@ -27,7 +27,7 @@ public class Frame {
     /**
      * Flatten a whole frame to provided WritableImage
      *
-     * @param inputPixelArray
+     * @param image
      */
     public void flattenFrame(WritableImage image) {
         if ((int) image.getWidth() != this.parentImage.getWidth() || (int) image.getHeight() != this.parentImage.getHeight()) {

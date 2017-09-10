@@ -21,7 +21,6 @@ public class WindowFrameController extends ViewController implements Initializab
     @Setter
     private boolean snapping = false;    
     
-    @Setter
     private Stage stage;
     
     @Setter
@@ -44,6 +43,12 @@ public class WindowFrameController extends ViewController implements Initializab
     
     private enum FrameState {
         WINDOW, MAXIMIZE, FULLSCREEN
+    }
+    
+    public void setStage(Stage stage) {
+        // TODO - add dynamic skin changing
+        stage.getScene().getStylesheets().add("skins/darkstar/Darkstar.css");
+        this.stage = stage;
     }
 
     @Override

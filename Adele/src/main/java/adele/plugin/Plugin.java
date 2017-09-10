@@ -6,9 +6,10 @@
 package adele.plugin;
 
 import adele.utils.Version;
+import java.util.List;
 
 /**
- * This is a basic interface which every plugin has to implement in order to be
+ * Basic interface which every plugin has to implement in order to be
  * registered by Adele. Jar file can contain more than one implementation of
  * interface. Each implementation is considered as individual plugin.
  *
@@ -55,6 +56,15 @@ public interface Plugin {
      * @return array of compatible Adele versions
      */
     public Version[] compatibleWith();
+
+    /**
+     * Get all components related to this plugin. Components are initialized by
+     * engine in order their appearance in list. It's plugins developer
+     * responsibility to order them in a way that makes sense.
+     *
+     * @return
+     */
+    public List<PluginComponent> getPluginComponents();
 
     //TODO icon?
 }

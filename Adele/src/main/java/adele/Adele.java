@@ -19,15 +19,16 @@ public class Adele extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        /*System.setProperty("prism.lcdtext", "false");
+        System.setProperty("prism.text", "t2k");*/
         Scene scene = new Scene(mainWindowController.getWindowFrameController().getRoot());
-        mainWindowController.getWindowFrameController().setStage(primaryStage);
-        
         primaryStage.setTitle("Adele");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setWidth(800);
         primaryStage.setHeight(600);        
         primaryStage.setScene(scene);       
         primaryStage.show();
+        mainWindowController.getWindowFrameController().setStage(primaryStage);
     }
     
     @Override

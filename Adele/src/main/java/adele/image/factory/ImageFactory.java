@@ -11,16 +11,23 @@ import java.util.List;
  */
 public class ImageFactory {
     
-    private int width;
-    private int height;
-    private int numberOfFrames;
-    private int numberOfSharedLayers;
-    private int numberOfLayers;
-    private int frameDelayInMS;
-    private String imageName;
+    private static ImageFactory singleton;
     
-    public ImageFactory() {
-        setDefault();
+    private int width = 0;
+    private int height = 0;
+    private int numberOfFrames = 0;
+    private int numberOfSharedLayers = 0;
+    private int numberOfLayers = 0;
+    private int frameDelayInMS = 0;
+    private String imageName = "Factory Image";
+    
+    private ImageFactory(){};
+    
+    public static ImageFactory getFactory() {
+        if (singleton == null) {
+            singleton = new ImageFactory();
+        }
+        return singleton;
     }
     
     public ImageFactory size(int width, int height) {
@@ -74,18 +81,8 @@ public class ImageFactory {
             img.getFrames().add(frame);
         }
         
-        setDefault();
+        singleton = null;
         return img;
-    }
-    
-    private void setDefault() {
-        width = 0;
-        height = 0;
-        numberOfFrames = 0;
-        numberOfSharedLayers = 0;
-        numberOfLayers = 0;
-        frameDelayInMS = 0;
-        imageName = "Factory Image";
     }
     
 }

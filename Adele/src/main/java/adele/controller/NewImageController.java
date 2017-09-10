@@ -5,10 +5,11 @@
  */
 package adele.controller;
 
+import adele.image.Image;
 import adele.image.factory.ImageFactory;
+import adele.service.ImageEditor;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.UUID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,9 +53,15 @@ public class NewImageController extends ViewController implements Initializable 
     private void createImage(ActionEvent event) {
         System.out.println("Create image");
         if (!validateInput()) {
+            System.out.println("Input not valid");
             return;
         }
-
+        ImageEditorController newImageEditor = (ImageEditorController) ViewController.load(AdeleViewControllerSource.ImageEditor);
+        Image newImage = ImageFactory.getFactory().size(widht, height).name(name).numberOfSharedLayers(1).numberOfFrames(1).build();
+        String imageUID = ImageEditor.getSingleton().storeImage(newImage);
+        newImageEditor.setImage(imageUID);
+        parentTab.setText(name);
+        parentTab.setContent(newImageEditor.getRoot());
     }
 
     @FXML

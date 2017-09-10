@@ -1,11 +1,9 @@
 package adele.service;
 
 import adele.image.EditorImage;
-import adele.image.Frame;
 import adele.image.Image;
 import adele.utils.ImageEditorUtils;
 import java.util.HashMap;
-import java.util.UUID;
 
 /**
  * ImageEditor service modifies the Image class. It manages the internal state
@@ -46,8 +44,12 @@ public class ImageEditor {
 
         return uid;
     }
+    
+    public EditorImage getImage(String imageUID) {
+        return storage.get(imageUID);
+    }
 
-    public ImageEditor getSingleton() {
+    public static ImageEditor getSingleton() {
         if (singleton == null) {
             singleton = new ImageEditor();
         }
