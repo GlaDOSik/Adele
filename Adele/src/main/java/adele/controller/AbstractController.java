@@ -14,11 +14,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * General class for controllers.
+ * Generic abstract class for controllers. It contains the root of the related
+ * view and custom window for GUI.
  *
  * @author ludek
  */
-public abstract class ViewController {
+public abstract class AbstractController {
 
     @Setter
     @Getter
@@ -50,7 +51,7 @@ public abstract class ViewController {
         if (!isAllowedToUseWindowFrame()) {
             return;
         }
-        windowFrameController = (WindowFrameController) WindowFrameController.load(AdeleViewControllerSource.WindowFrame);
+        windowFrameController = (WindowFrameController) WindowFrameController.load(AdeleViewSource.WindowFrame);
         windowFrameController.setContent(root);
 
         if (withStage) {
@@ -68,9 +69,9 @@ public abstract class ViewController {
      */
     public abstract boolean isAllowedToUseWindowFrame();
 
-    public static ViewController load(ViewControllerSource viewControllerSource) {
+    public static AbstractController load(ViewSource viewControllerSource) {
         FXMLLoader loader = getLoader(viewControllerSource);
-        ViewController controller = loader.getController();
+        AbstractController controller = loader.getController();
         if (controller == null) {
             throw new IllegalArgumentException("Provided controller doesn't exist");
         }
@@ -78,15 +79,15 @@ public abstract class ViewController {
         return controller;
     }
 
-    public static Parent loadView(ViewControllerSource viewControllerSource) {
+    public static Parent loadView(ViewSource viewControllerSource) {
         try {
-            return FXMLLoader.load(ViewController.class.getResource(viewControllerSource.getPath()));
+            return FXMLLoader.load(AbstractController.class.getResource(viewControllerSource.getPath()));
         } catch (IOException ex) {
             throw new IllegalArgumentException("Provided path is not valid");
         }
     }
 
-    private static FXMLLoader getLoader(ViewControllerSource viewControllerSource) {
+    private static FXMLLoader getLoader(ViewSource viewControllerSource) {
         if (viewControllerSource == null || viewControllerSource.getPath().isEmpty()) {
             throw new IllegalArgumentException("Path is null or empty");
         }

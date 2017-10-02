@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 
-public class WindowFrameController extends ViewController implements Initializable {
+public class WindowFrameController extends AbstractController implements Initializable {
 
     @Getter
     @Setter

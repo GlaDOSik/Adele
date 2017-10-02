@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.StackPane;
 
 
-public class ImageEditorController extends ViewController implements Initializable {
+public class ImageEditorController extends AbstractController implements Initializable {
     
     private String imageUID = "";
     

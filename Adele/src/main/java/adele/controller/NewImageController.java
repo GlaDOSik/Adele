@@ -24,7 +24,7 @@ import org.apache.logging.log4j.util.Strings;
  *
  * @author ludek
  */
-public class NewImageController extends ViewController implements Initializable {
+public class NewImageController extends AbstractController implements Initializable {
 
     private static final int MIN_SIZE = 1;
     private static final int MAX_SIZE = 3000;
@@ -56,7 +56,7 @@ public class NewImageController extends ViewController implements Initializable 
             System.out.println("Input not valid");
             return;
         }
-        ImageEditorController newImageEditor = (ImageEditorController) ViewController.load(AdeleViewControllerSource.ImageEditor);
+        ImageEditorController newImageEditor = (ImageEditorController) AbstractController.load(AdeleViewSource.ImageEditor);
         Image newImage = ImageFactory.getFactory().size(widht, height).name(name).numberOfSharedLayers(1).numberOfFrames(1).build();
         String imageUID = ImageEditor.getSingleton().storeImage(newImage);
         newImageEditor.setImage(imageUID);

@@ -8,7 +8,7 @@ package adele.controller;
 /**
  * Controller paths for
  */
-public enum AdeleViewControllerSource implements ViewControllerSource{
+public enum AdeleViewSource implements ViewSource{
     WindowFrame("/fxml/utility/WindowFrame.fxml"), 
     MainWindow("/fxml/MainWindow.fxml"),
     NewImage("/fxml/tabcontent/NewImage.fxml"),
@@ -16,7 +16,7 @@ public enum AdeleViewControllerSource implements ViewControllerSource{
     
     private final String path;
         
-    private AdeleViewControllerSource(String path) {
+    private AdeleViewSource(String path) {
         this.path = path;
     }
 

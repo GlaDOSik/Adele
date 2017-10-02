@@ -9,7 +9,7 @@ package adele.controller;
  *
  * @author ludek
  */
-public interface ViewControllerSource {
+public interface ViewSource {
     
     public String getPath();
     

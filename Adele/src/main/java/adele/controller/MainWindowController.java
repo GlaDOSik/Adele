@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
-public class MainWindowController extends ViewController implements Initializable {
+public class MainWindowController extends AbstractController implements Initializable {
 
     @FXML
     private TabPane tabs;
@@ -16,7 +16,7 @@ public class MainWindowController extends ViewController implements Initializabl
     
     @FXML
     private void newImagePrompt(ActionEvent event) {
-        NewImageController newImagePrompt = (NewImageController) ViewController.load(AdeleViewControllerSource.NewImage);
+        NewImageController newImagePrompt = (NewImageController) AbstractController.load(AdeleViewSource.NewImage);
         Tab newImageTab = new Tab("New image"); //TODO - change name
         newImagePrompt.setParentTab(newImageTab);
         newImageTab.setContent(newImagePrompt.getRoot());
