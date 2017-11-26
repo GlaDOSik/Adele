@@ -14,6 +14,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
+import utils.controller.AbstractController;
 
 public class WindowFrameController extends AbstractController implements Initializable {
 

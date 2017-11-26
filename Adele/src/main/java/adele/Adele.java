@@ -1,7 +1,6 @@
 package adele;
 
-import adele.controller.AdeleViewSource;
-import adele.utils.Version;
+import utils.Version;
 import adele.controller.MainWindowController;
 import javafx.application.Application;
 import javafx.scene.Scene;

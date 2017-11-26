@@ -1,5 +1,6 @@
 package adele.controller;
 
+import adele.AdeleViewSource;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import utils.controller.AbstractController;
 
 public class MainWindowController extends AbstractController implements Initializable {
 

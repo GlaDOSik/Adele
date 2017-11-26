@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package adele.controller;
 
+import adele.AdeleViewSource;
 import adele.image.Image;
 import adele.image.factory.ImageFactory;
 import adele.service.ImageEditor;
@@ -18,6 +14,7 @@ import javafx.scene.control.TextField;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.logging.log4j.util.Strings;
+import utils.controller.AbstractController;
 
 /**
  * FXML Controller class
